@@ -1,4 +1,9 @@
 [alias]
+cleanup = [
+    "clean",
+    "-Z",
+    "feature-unification"
+]
 xtask = "run --package xtask --bin xtask --"
 tq = "test -- -q"
 qt = "tq"
@@ -6,8 +11,23 @@ lint = "clippy --all-targets -- --cap-lints warn"
 codegen = "run --package xtask --bin xtask -- codegen"
 dist = "run --package xtask --bin xtask -- dist"
 
-[target.x86_64-pc-windows-msvc]
-linker = "rust-lld"
+[build]
+incremental = false
+target-dir = "target"
+rustc-wrapper = "sccache"
+rustflags = [
+    "-C",
+    "linker=rust-lld",
+    "-C",
+    "link-arg=/OPT:NOREF",
+    "-C",
+    "link-arg=/INCREMENTAL:NO",
+    "-C",
+    "link-arg=/NODEFAULTLIB:libcmt",
+    "-C",
+    "target-cpu=native"
+]
 
 [env]
-CARGO_WORKSPACE_DIR = { value = "", relative = true }
+CARGO_WORKSPACE_DIR 	= { value = "", relative = true }
+SCCACHE_CONF		= { value = "X:/EscamoteTheBeguiled/.config/sccache.toml", force = true }
