@@ -18,18 +18,15 @@ incremental = false
 target-dir = "target"
 rustc-wrapper = "sccache"
 rustflags = [
+    "-Z",
+    "share-generics=yes",
     "-C",
-    "linker=rust-lld",
-    "-C",
-    "link-arg=/OPT:NOREF",
+    "linker=rust-lld.exe",
     "-C",
     "link-arg=/INCREMENTAL:NO",
-    "-C",
-    "link-arg=/NODEFAULTLIB:libcmt",
     "-C",
     "target-cpu=native"
 ]
 
 [env]
 CARGO_WORKSPACE_DIR = { value = "", relative = true }
-SCCACHE_CONF		= { value = "X:/Escamote/.config/sccache.toml", force = true }
