@@ -4,6 +4,8 @@ cleanup = [
     "-Z",
     "feature-unification"
 ]
+build16 = "build --profile release --jobs 16"
+build24 = "build --profile release --jobs 24"
 xtask = "run --package xtask --bin xtask --"
 tq = "test -- -q"
 qt = "tq"
@@ -29,5 +31,5 @@ rustflags = [
 ]
 
 [env]
-CARGO_WORKSPACE_DIR 	= { value = "", relative = true }
-SCCACHE_CONF		= { value = "X:/EscamoteTheBeguiled/.config/sccache.toml", force = true }
+CARGO_WORKSPACE_DIR = { value = "", relative = true }
+SCCACHE_CONF		= { value = "X:/Escamote/.config/sccache.toml", force = true }
