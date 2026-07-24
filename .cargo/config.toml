@@ -1,9 +1,8 @@
+[unstable]
+feature-unification = true
+
 [alias]
-cleanup = [
-    "clean",
-    "-Z",
-    "feature-unification"
-]
+cleanpkg = ["clean", "-p", "rust-analyzer"]
 build16 = "build -p rust-analyzer --profile release --jobs 16"
 build24 = "build -p rust-analyzer --profile release --jobs 24"
 xtask = "run --package xtask --bin xtask --"
@@ -15,7 +14,7 @@ dist = "run --package xtask --bin xtask -- dist"
 
 [build]
 incremental = false
-target-dir = "target"
+target-dir = 'X:\Escamote\global-target'
 rustc-wrapper = "sccache"
 rustflags = [
     "-Z",
