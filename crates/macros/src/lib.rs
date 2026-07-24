@@ -29,7 +29,7 @@ decl_derive!(
     [GenericTypeVisitable] => generic_type_visitable_derive
 );
 
-fn type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
+fn type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::TokenStream {
     if let syn::Data::Union(_) = s.ast().data {
         panic!("cannot derive on union")
     }
@@ -86,7 +86,7 @@ fn type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::Tok
     )
 }
 
-fn type_foldable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
+fn type_foldable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::TokenStream {
     if let syn::Data::Union(_) = s.ast().data {
         panic!("cannot derive on union")
     }
@@ -170,7 +170,7 @@ fn has_ignore_attr(attrs: &[syn::Attribute], name: &'static str, meta: &'static 
     ignored
 }
 
-fn generic_type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
+fn generic_type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::TokenStream {
     if let syn::Data::Union(_) = s.ast().data {
         panic!("cannot derive on union")
     }
@@ -201,7 +201,7 @@ decl_derive!(
     [UpmapFromRaFixture] => upmap_from_ra_fixture
 );
 
-fn upmap_from_ra_fixture(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
+fn upmap_from_ra_fixture(mut s: synstructure::Structure<'_>) -> proc_macro::TokenStream {
     if let syn::Data::Union(_) = s.ast().data {
         panic!("cannot derive on union")
     }

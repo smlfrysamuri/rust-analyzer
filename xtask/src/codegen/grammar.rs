@@ -13,7 +13,7 @@ use std::{
 
 use either::Either;
 use itertools::Itertools;
-use proc_macro2::{Punct, Spacing};
+use proc_macro::{Punct, Spacing};
 use quote::{format_ident, quote};
 use stdx::panic_context;
 use ungrammar::{Grammar, Rule};
@@ -778,10 +778,10 @@ impl Field {
     fn is_many(&self) -> bool {
         matches!(self, Field::Node { cardinality: Cardinality::Many, .. })
     }
-    fn token_kind(&self) -> Option<proc_macro2::TokenStream> {
+    fn token_kind(&self) -> Option<proc_macro::TokenStream> {
         match self {
             Field::Token { token, .. } => {
-                let token: proc_macro2::TokenStream = token.parse().unwrap();
+                let token: proc_macro::TokenStream = token.parse().unwrap();
                 Some(quote! { T![#token] })
             }
             _ => None,
@@ -836,7 +836,7 @@ impl Field {
             }
         }
     }
-    fn ty(&self) -> proc_macro2::Ident {
+    fn ty(&self) -> proc_macro::Ident {
         match self {
             Field::Token { .. } => format_ident!("SyntaxToken"),
             Field::Node { ty, .. } => format_ident!("{}", ty),

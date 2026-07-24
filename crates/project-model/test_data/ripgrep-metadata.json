@@ -12157,7 +12157,7 @@
                 ],
                 "deps": [
                     {
-                        "name": "proc_macro2",
+                        "name": "proc_macro",
                         "pkg": "proc-macro2 1.0.56 (registry+https://github.com/rust-lang/crates.io-index)",
                         "dep_kinds": [
                             {
@@ -12488,7 +12488,7 @@
                 ],
                 "deps": [
                     {
-                        "name": "proc_macro2",
+                        "name": "proc_macro",
                         "pkg": "proc-macro2 1.0.56 (registry+https://github.com/rust-lang/crates.io-index)",
                         "dep_kinds": [
                             {
@@ -12581,7 +12581,7 @@
                 ],
                 "deps": [
                     {
-                        "name": "proc_macro2",
+                        "name": "proc_macro",
                         "pkg": "proc-macro2 1.0.56 (registry+https://github.com/rust-lang/crates.io-index)",
                         "dep_kinds": [
                             {

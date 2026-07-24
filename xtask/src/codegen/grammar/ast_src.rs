@@ -26,7 +26,7 @@ pub(super) enum Edition {
 }
 
 impl ToTokens for Edition {
-    fn to_tokens(&self, tokens: &mut proc_macro2::TokenStream) {
+    fn to_tokens(&self, tokens: &mut proc_macro::TokenStream) {
         match self {
             Edition::Edition2015 => {
                 tokens.extend(quote::quote! { Edition::Edition2015 });
