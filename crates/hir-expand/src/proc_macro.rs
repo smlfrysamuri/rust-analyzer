@@ -70,9 +70,9 @@ impl ProcMacrosBuilder {
         if let Ok(proc_macros) = &mut proc_macro {
             // Sort proc macros to improve incrementality when only their order has changed (ideally the build system
             // will not change their order, but just to be sure).
-            proc_macros.sort_unstable_by(|proc_macro, proc_macro| {
+            proc_macros.sort_unstable_by(|proc_macro, proc_macro_2| {
                 (proc_macro.name.as_str(), proc_macro.kind)
-                    .cmp(&(proc_macro.name.as_str(), proc_macro.kind))
+                    .cmp(&(proc_macro_2.name.as_str(), proc_macro_2.kind))
             });
         }
         self.0.insert(

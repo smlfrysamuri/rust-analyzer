@@ -84,6 +84,7 @@ fn type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::Toke
             }
         },
     )
+    .into()
 }
 
 fn type_foldable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::TokenStream {
@@ -151,6 +152,7 @@ fn type_foldable_derive(mut s: synstructure::Structure<'_>) -> proc_macro::Token
             }
         },
     )
+    .into()
 }
 
 fn has_ignore_attr(attrs: &[syn::Attribute], name: &'static str, meta: &'static str) -> bool {
@@ -195,6 +197,7 @@ fn generic_type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_mac
             }
         },
     )
+    .into()
 }
 
 decl_derive!(
@@ -234,4 +237,5 @@ fn upmap_from_ra_fixture(mut s: synstructure::Structure<'_>) -> proc_macro::Toke
             }
         },
     )
+    .into()
 }

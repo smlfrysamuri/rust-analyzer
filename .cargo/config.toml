@@ -14,7 +14,8 @@ dist = "run --package xtask --bin xtask -- dist"
 
 [build]
 incremental = false
-target-dir = 'X:\Escamote\global-target'
+build-dir = 'X:\Escamote\.bin'
+target-dir = 'X:\Escamote\.target'
 rustc-wrapper = "sccache"
 rustflags = [
     "-Z",
