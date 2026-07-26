@@ -538,6 +538,14 @@ pub enum InferenceDiagnostic {
         #[type_visitable(ignore)]
         kind: ReturnKind,
     },
+    RecordMissingFields {
+        #[type_visitable(ignore)]
+        record: ExprOrPatId,
+        #[type_visitable(ignore)]
+        variant: VariantId,
+        #[type_visitable(ignore)]
+        missed_fields: Vec<LocalFieldId>,
+    },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -2627,11 +2635,6 @@ impl<'db> InferenceContext<'db> {
                 (self.err_ty(), None)
             }
         }
-    }
-
-    fn resolve_boxed_box(&self) -> Option<AdtId> {
-        let struct_ = self.lang_items.OwnedBox?;
-        Some(struct_.into())
     }
 
     fn resolve_range_full(&self) -> Option<AdtId> {
