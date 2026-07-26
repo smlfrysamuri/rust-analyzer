@@ -2,7 +2,11 @@
 feature-unification = true
 
 [alias]
-cleanpkg = ["clean", "-p", "rust-analyzer"]
+clean-bin = ["clean", "-p", "rust-analyzer"]
+clean-workspace = [
+    "clean", 
+    "--workspace"
+]
 build16 = "build -p rust-analyzer --profile release --jobs 16"
 build24 = "build -p rust-analyzer --profile release --jobs 24"
 xtask = "run --package xtask --bin xtask --"
@@ -14,7 +18,7 @@ dist = "run --package xtask --bin xtask -- dist"
 
 [build]
 incremental = false
-build-dir = 'X:\Escamote\.bin'
+build-dir = 'X:\Escamote\.build'
 target-dir = 'X:\Escamote\.target'
 rustc-wrapper = "sccache"
 rustflags = [
