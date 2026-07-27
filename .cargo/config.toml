@@ -29,7 +29,7 @@ rustflags = [
     "-C",
     "link-arg=/INCREMENTAL:NO",
     "-C",
-    "target-cpu=native"
+    "target-cpu=x86-64-v3"
 ]
 
 [env]
