@@ -2,11 +2,6 @@
 feature-unification = true
 
 [alias]
-clean-bin = ["clean", "-p", "rust-analyzer"]
-clean-workspace = [
-    "clean", 
-    "--workspace"
-]
 build16 = "build -p rust-analyzer --profile release --jobs 16"
 build24 = "build -p rust-analyzer --profile release --jobs 24"
 xtask = "run --package xtask --bin xtask --"
@@ -18,9 +13,7 @@ dist = "run --package xtask --bin xtask -- dist"
 
 [build]
 incremental = false
-build-dir = 'X:\Escamote\.build'
-target-dir = 'X:\Escamote\.target'
-rustc-wrapper = "sccache"
+target-dir = 'X:\Escamote\.target\rust-analyzer'
 rustflags = [
     "-Z",
     "share-generics=yes",
@@ -34,3 +27,6 @@ rustflags = [
 
 [env]
 CARGO_WORKSPACE_DIR = { value = "", relative = true }
+
+[resolver]
+feature-unification = "workspace"
