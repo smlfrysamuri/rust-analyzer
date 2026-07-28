@@ -1,32 +1,6 @@
-[unstable]
-feature-unification = true
-
 [alias]
-build16 = "build -p rust-analyzer --profile release --jobs 16"
-build24 = "build -p rust-analyzer --profile release --jobs 24"
-xtask = "run --package xtask --bin xtask --"
-tq = "test -- -q"
-qt = "tq"
-lint = "clippy --all-targets -- --cap-lints warn"
-codegen = "run --package xtask --bin xtask -- codegen"
-dist = "run --package xtask --bin xtask -- dist"
-
-[build]
-incremental = false
-target-dir = 'X:\Escamote\.target\rust-analyzer'
-rustflags = [
-    "-Z",
-    "share-generics=yes",
-    "-C",
-    "linker=rust-lld.exe",
-    "-C",
-    "link-arg=/INCREMENTAL:NO",
-    "-C",
-    "target-cpu=x86-64-v3"
-]
+build-work = "build -p rust-analyzer --profile release --jobs 16"
+build-home = "build -p rust-analyzer --profile release --jobs 24"
 
 [env]
 CARGO_WORKSPACE_DIR = { value = "", relative = true }
-
-[resolver]
-feature-unification = "workspace"
