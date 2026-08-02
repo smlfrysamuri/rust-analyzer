@@ -1085,10 +1085,7 @@ impl<'db> InferenceResult<'db> {
     fn for_body(db: &dyn HirDatabase, def: DefWithBodyId) -> InferenceResult<'_> {
         infer_query(db, def)
     }
-}
 
-#[salsa::tracked]
-impl<'db> InferenceResult<'db> {
     /// Infer types for all const expressions in an item's signature.
     ///
     /// Returns an `InferenceResult` containing type information for array lengths,
@@ -1441,7 +1438,7 @@ impl<'db> InferenceContext<'db> {
         lowering_mode: LoweringMode,
     ) -> Self {
         let trait_env = db.trait_environment(generic_def);
-        let table = unify::InferenceTable::new(db, trait_env, resolver.krate(), store_owner);
+        let table = unify::InferenceTable::new(db, trait_env, resolver.krate(), owner);
         let types = crate::next_solver::default_types(db);
         InferenceContext {
             result: InferenceResult::new(types.types.error),
