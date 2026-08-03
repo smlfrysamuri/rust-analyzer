@@ -3,4 +3,5 @@ build-work = "build -p rust-analyzer --profile release --jobs 16"
 build-home = "build -p rust-analyzer --profile release --jobs 24"
 
 [env]
-CARGO_WORKSPACE_DIR = { value = "", relative = true }
+CARGO_WORKSPACE_DIR     = { value = "", relative = true }
+CARGO_TARGET_DIR        = { value = "X:\\Escamote\\.rust-analyzer\\target" }
